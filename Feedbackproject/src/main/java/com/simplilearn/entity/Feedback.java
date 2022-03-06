@@ -1,34 +1,37 @@
 package com.simplilearn.entity;
 
-public class Feedback {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity 
+@Table(name="feedback")
+public class Feedback {
+	@Override
+	public String toString() {
+		return "Feedback [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+				+ ", feedback1=" + feedback1 + "]";
+	}
+
+	@Id @GeneratedValue
 	private int id;
-	private String uname;
-	private int rating;
-	private String message;
-	public int getId() {
-		return id;
+	private String firstname;
+	private String lastname;
+	private String email;
+	private String feedback1;
+	
+	public Feedback() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUname() {
-		return uname;
-	}
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
-	public int getRating() {
-		return rating;
-	}
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
+
+	public Feedback(String firstname, String lastname, String email ,String feedback1) {
+		super();
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.email= email;
+		this.feedback1 = feedback1;
 	}
 	
 	
